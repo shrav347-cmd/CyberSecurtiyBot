@@ -1,14 +1,14 @@
-﻿namespace CyberSecurityBot.Classes;
-
-public class ResponseHandler
+﻿namespace CyberSecurtiyBot // Removed the .Classes part to match Program.cs
 {
-    public string GetResponse(string input)
+    public class ResponseHandler
     {
-        input = input.ToLower();
+        public string GetResponse(string input)
+        {
+            input = input.ToLower();
+            if (input.Contains("password"))
+                return "Use strong, unique passwords for every account.";
 
-        if (input.Contains("password"))
-            return "Use strong passwords.";
-
-        return "I didn’t understand that.";
+            return "I didn't quite understand that. Could you rephrase?";
+        }
     }
 }
