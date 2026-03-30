@@ -1,28 +1,27 @@
 ﻿using CyberSecurityBot;
-using CyberSecurtiyBot;
+using System;
 
-static void Main(string[] args)
+namespace CyberSecurtiyBot
 {
-    Chatbot bot = new Chatbot();
-    User currentUser = new User();
-    ResponseHandler handler = new ResponseHandler();
-
-    bot.Start(); 
-
-    Console.WriteLine("Please enter your name to begin:");
-    string inputName = Console.ReadLine();
-
-    
-    currentUser.Name = string.IsNullOrWhiteSpace(inputName) ? "Guest" : inputName;
-
-    Console.WriteLine($"\nWelcome {currentUser.Name}! How can I help you with Cybersecurity today?");
-
-    
-    for (int i = 0; i < 3; i++)
+    class Program
     {
-        Console.Write("\nAsk me a question (e.g., about passwords): ");
-        string userQuestion = Console.ReadLine() ?? "";
-        string response = handler.GetResponse(userQuestion);
-        Console.WriteLine(response);
+        static void Main(string[] args)
+        {
+            Chatbot bot = new Chatbot();
+            User user = new User();
+
+            Console.WriteLine("Enter your name:");
+            // The ?? "" fixes the "null literal" warning
+            string input = Console.ReadLine() ?? "";
+
+            // Input Validation (Required for marks)
+            user.Name = string.IsNullOrWhiteSpace(input) ? "Guest" : input;
+
+            // This fixes the 'no argument given' error
+            bot.Start(user.Name);
+
+            Console.WriteLine("\nPress any key to exit...");
+            Console.ReadKey();
+        }
     }
 }
