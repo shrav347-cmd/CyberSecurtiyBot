@@ -3,21 +3,19 @@ using System;
 
 namespace CyberSecurtiyBot
 {
+    // The class must be inside the namespace
     class Program
     {
+        // The Main method must be inside the class
         static void Main(string[] args)
         {
             Chatbot bot = new Chatbot();
             User user = new User();
 
-            Console.WriteLine("Enter your name:");
-            // The ?? "" fixes the "null literal" warning
+            Console.WriteLine("Please enter your name:");
             string input = Console.ReadLine() ?? "";
-
-            // Input Validation (Required for marks)
             user.Name = string.IsNullOrWhiteSpace(input) ? "Guest" : input;
 
-            // This fixes the 'no argument given' error
             bot.Start(user.Name);
 
             Console.WriteLine("\nPress any key to exit...");
