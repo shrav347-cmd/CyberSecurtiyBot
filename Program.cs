@@ -3,23 +3,37 @@ using System;
 
 namespace CyberSecurtiyBot
 {
-    // The class must be inside the namespace
     class Program
     {
-        // The Main method must be inside the class
         static void Main(string[] args)
         {
             Chatbot bot = new Chatbot();
             User user = new User();
+            ResponseHandler handler = new ResponseHandler();
 
-            Console.WriteLine("Please enter your name:");
+            Console.WriteLine("What is your name?");
             string input = Console.ReadLine() ?? "";
             user.Name = string.IsNullOrWhiteSpace(input) ? "Guest" : input;
 
             bot.Start(user.Name);
 
-            Console.WriteLine("\nPress any key to exit...");
-            Console.ReadKey();
+            bool isRunning = true;
+            while (isRunning)
+            {
+                Console.Write("\n[You]: ");
+                string userQuestion = Console.ReadLine() ?? "";
+
+                if (userQuestion.ToLower() == "exit" || userQuestion.ToLower() == "quit")
+                {
+                    isRunning = false;
+                    Console.WriteLine("[Bot]: Stay safe online. Goodbye!");
+                }
+                else
+                {
+                    string botAnswer = handler.GetResponse(userQuestion);
+                    Console.WriteLine(botAnswer);
+                }
+            }
         }
     }
 }
