@@ -1,4 +1,4 @@
-﻿using CyberSecurityBot.Classes;
+﻿using CyberSecurityBot;
 
 namespace CyberSecurityBot
 {
