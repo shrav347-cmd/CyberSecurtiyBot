@@ -18,6 +18,8 @@ namespace CyberSecurtiyBot
             bot.Start(user.Name);
 
             bool isRunning = true;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Welcome, {user.Name}. The Secure Database is now online.");
             while (isRunning)
             {
                 Console.Write("\n[You]: ");
