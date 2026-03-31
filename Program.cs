@@ -6,15 +6,16 @@ namespace CyberSecurtiyBot
     class Program
     {
         static void Main(string[] args)
-        {
+        { // Setting up the 'team' - each object has a specific job to do.
             Chatbot bot = new Chatbot();
             User user = new User();
             ResponseHandler handler = new ResponseHandler();
-
+            // Making sure the bot doesn't break if the user just hits 'Enter'
             Console.WriteLine("What is your name?");
             string input = Console.ReadLine() ?? "";
             user.Name = string.IsNullOrWhiteSpace(input) ? "Guest" : input;
-
+            // This triggers the audio greeting. 
+            // I'm passing the name here so the bot feels more interactive.
             bot.Start(user.Name);
 
             bool isRunning = true;
