@@ -30,6 +30,8 @@ namespace CyberSecurtiyBot
                 {
                     isRunning = false;
                     Console.WriteLine("[Bot]: Stay safe online. Goodbye!");
+                    Console.WriteLine("Press any key to close the terminal...");
+                    Console.ReadKey();
                 }
                 else
                 {
