@@ -35,10 +35,14 @@ namespace CyberSecurtiyBot
                 }
                 else
                 {
+                    Console.Write("[System]: Searching database...");
+                    System.Threading.Thread.Sleep(800); // 0.8 second pause
+                    Console.Write("\r" + new string(' ', 30) + "\r"); // This clears the 'Searching' text
+
                     string botAnswer = handler.GetResponse(userQuestion);
                     Console.WriteLine(botAnswer);
                 }
             }
         }
     }
-}
+} 
